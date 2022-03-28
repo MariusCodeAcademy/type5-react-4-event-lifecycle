@@ -11,9 +11,9 @@ function App() {
       <LoginLogout status={isUserLoggedIn} />
       <h1>App</h1>
       <div className='grid'>
-        <Counter />
-        {/* <Counter />
-        <Counter /> */}
+        <Counter title='People' />
+        <Counter title='Cars' initValue={10} />
+        <Counter title='House' initValue={15} />
       </div>
       <ReactForm />
     </div>
