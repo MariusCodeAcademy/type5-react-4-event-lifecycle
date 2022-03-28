@@ -4,6 +4,7 @@ import LoginLogout from './components/LoginLogout';
 import ReactForm from './components/ReactForm';
 
 function App() {
+  console.log('App component ran');
   const isUserLoggedIn = false;
   return (
     <div className='App'>
@@ -11,8 +12,8 @@ function App() {
       <h1>App</h1>
       <div className='grid'>
         <Counter />
-        <Counter />
-        <Counter />
+        {/* <Counter />
+        <Counter /> */}
       </div>
       <ReactForm />
     </div>

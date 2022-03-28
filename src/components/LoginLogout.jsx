@@ -1,4 +1,5 @@
 function LoginLogout({ status }) {
+  console.log('LoginLogout ran');
   return (
     <nav>
       {!status && (

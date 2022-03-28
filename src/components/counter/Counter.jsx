@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './counter.css';
+
+const colors = ['red', 'green', 'blue'];
 
 function Counter() {
   console.log('Counter component ran');
   // useState
   const [count, setCount] = useState(5);
+  const [currentColor, setCurrentColor] = useState(0);
   // let count = 5;
   function downHandler() {
     console.log('Down button was clicked');
@@ -13,8 +16,20 @@ function Counter() {
     console.log('count ===', count);
   }
 
+  useEffect(() => {
+    console.log('Counter component useEffect ran');
+  }, []); /// vygdomas viena karta tik uzkrovus komponenta
+
+  useEffect(() => {
+    console.log('Counter component useEffect currentColor ran');
+    if (currentColor === 3) {
+      setCurrentColor(0);
+    }
+  }, [currentColor]); /// vygdomas viena karta tik uzkrovus komponenta ir kai iviksta pasikeitimas currentColor state objekte
+
   const upHandler = () => {
     setCount(count + 1);
+    setCurrentColor(currentColor + 1);
   };
 
   const upFiveHandler = function () {
@@ -39,6 +54,7 @@ function Counter() {
 
   return (
     <div className='counter'>
+      <h3>{colors[currentColor]}</h3>
       <h2 className={calcClass()}>{count}</h2>
       <div className='control'>
         <button onClick={upHandler}>UP</button>
