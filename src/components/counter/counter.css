@@ -1,3 +1,10 @@
 .counter {
   text-align: center;
 }
+
+.negative {
+  color: tomato;
+}
+.green {
+  color: green;
+}
