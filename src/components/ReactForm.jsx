@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+function ShowErr({ error }) {
+  return error ? <h3 className='negative'>{error}</h3> : null;
+}
+
 function ReactForm() {
   const [userName, setUserName] = useState('');
   const [userAge, setUserAge] = useState('');
@@ -37,7 +41,7 @@ function ReactForm() {
     <div>
       <h2>React form</h2>
       <form onSubmit={formSendHandler}>
-        {error && <h3 className='negative'>{error}</h3>}
+        <ShowErr error={error} />
         <input onChange={nameChangeHandler} value={userName} type='text' placeholder='Name' /> <br />
         <input onChange={userAgeHandler} value={userAge} type='number' placeholder='Age' /> <br />
         <button>Submit</button>
