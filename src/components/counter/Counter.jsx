@@ -3,10 +3,12 @@ import './counter.css';
 
 const colors = ['red', 'green', 'blue'];
 
-function Counter() {
+function Counter(props) {
   console.log('Counter component ran');
   // useState
-  const [count, setCount] = useState(5);
+  // initValue ? initValue : 5
+  const pradineReikme = props.initValue ? props.initValue : 5;
+  const [count, setCount] = useState(pradineReikme);
   const [currentColor, setCurrentColor] = useState(0);
   // let count = 5;
   function downHandler() {
@@ -55,6 +57,7 @@ function Counter() {
   return (
     <div className='counter'>
       <h3>{colors[currentColor]}</h3>
+      <h2>{props.title}</h2>
       <h2 className={calcClass()}>{count}</h2>
       <div className='control'>
         <button onClick={upHandler}>UP</button>
